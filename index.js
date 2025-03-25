@@ -37,8 +37,13 @@ const getPostTitles = async () => {
 // getPostTitles();
 
 const getMovie = async () => {
-	const movie = fetch("http://www.omdbapi.com/?i=tt3896198&apikey=b8f921ba&s=Blue Velvet&y=1986").then(res => res.json()).then(res => console.log(res));
+	const movie = await fetch("http://www.omdbapi.com/?i=tt3896198&apikey=b8f921ba&s=Blue Velvet&y=1986").
+		then(res => res.json()).
+		then(res => 
+			console.log(res.Search[0])
+		);
 	return movie;
 }
 
-getMovie();
+var movies = getMovie();
+
