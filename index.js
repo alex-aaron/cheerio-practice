@@ -2,6 +2,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 
 const url = 'https://letterboxd.com/director/david-lynch/';
+const API_KEY = 'b8f921ba';
 
 const getPostTitles = async () => {
 	try {
@@ -33,4 +34,11 @@ const getPostTitles = async () => {
 	}
 };
 
-getPostTitles();
+// getPostTitles();
+
+const getMovie = async () => {
+	const movie = fetch("http://www.omdbapi.com/?i=tt3896198&apikey=b8f921ba&s=Blue Velvet&y=1986").then(res => res.json()).then(res => console.log(res));
+	return movie;
+}
+
+getMovie();
